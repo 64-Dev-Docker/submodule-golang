@@ -11,6 +11,9 @@ git config --global gpg.format x509
 git config --global commit.gpgSign true
 git config --global tag.gpgSign true
 
+# go by default uses 'https'
+git config --global url."git@github.com:".insteadOf "https://github.com/"
+
 # gah - silly terminal
 export GPG_TTY=$(tty)
 gpgconf --kill gpg-agent
