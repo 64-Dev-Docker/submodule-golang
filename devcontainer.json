@@ -11,6 +11,8 @@
     }
 	},
 	"runArgs": [
+"--init", 
+"--privileged"
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined"
@@ -40,7 +42,9 @@
 		"eamodio.gitlens",
 		"hoovercj.vscode-power-mode",
 		// go
-		"golang.Go"
+		"golang.Go",
+		// docker
+"ms-azuretools.vscode-docker"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
@@ -51,7 +55,9 @@
 		// "source=${localWorkspaceFolder}/.devcontainer/app-scripts,target=/usr/local/share/app-scripts,type=bind,consistency=cached",
 		"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
 		"source=${localEnv:HOME}/.gnupg,target=/home/vscode/.gnupg,type=bind,consistency=cached",
+"source=dind-var-lib-docker,target=/var/lib/docker,type=volume",
 	],
+"overrideCommand": false,
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
 	// "postCreateCommand": "apt-get update && apt-get install -y curl",
 	// Use 'postCreateCommand' to run commands after the container is created.
