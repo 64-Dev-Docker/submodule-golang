@@ -48,12 +48,6 @@ ENV NVM_SYMLINK_CURRENT=true \
 RUN bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}" \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
-# # Install NeoVim 
-# # ARG INSTALL_NEOVIM="true"
-# COPY custom-scripts/neovim/* /tmp/library-scripts/
-# RUN bash /tmp/library-scripts/install-neovim.sh "${USERNAME}" \
-#     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
-
 # Install and configure zsh
 COPY custom-scripts/zsh/* /tmp/library-scripts/
 RUN /bin/bash /tmp/library-scripts/update-zsh.sh "${USERNAME}" \
